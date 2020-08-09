@@ -13,6 +13,12 @@ class Question(models.Model):
     def was_published_recently(self):
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
+    was_published_recently.admin_order_field = 'pub_date'
+    # 이 필드를 중심으로 하겠다
+    was_published_recently.boolean = True
+    # true false를 이모티콘으로 하겠다
+    was_published_recently.short_description = 'Published recently?'
+    # 설명으로 변경
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE) # Question이라는 모델을 참조하겠다
