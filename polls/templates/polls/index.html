@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+    <!-- {//%// static //%//} 템플릿 태그는 정적 파일의 절대 URL을 생성합니다. -->
 {% if latest_question_list %}
     <ul>
         {% for question in latest_question_list %}
