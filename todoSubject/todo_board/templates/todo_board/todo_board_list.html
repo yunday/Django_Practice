@@ -2,10 +2,11 @@
 {% load static %}
 {% block main %}
 
-<div class ='alert alert-info'>
+<div class="col-md-12">
     <div class="container">
-        <center><h1>todo board 화면 입니다</h1></center>
-        <p></p>
+        {% for list in todo_list %}
+            <div class="list-group-item"><input type="checkbox" name={{list.title}} value={{list.title}}> {{list.title}}</div>
+        {% endfor %}
     </div>
 </div>
 
