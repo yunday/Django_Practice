@@ -4,16 +4,15 @@
 
 <div class="col-md-12">
     <div class="container">
-        {% for list in todo_list %}
-            <div class="list-group-item"><input type="checkbox" name={{list.title}} value={{list.title}}> {{list.title}}</div>
-        {% endfor %}
+        <div id="example1" class="list-group col">
+            {% for list in todo_list %}
+                <div class="list-group-item"><input type="checkbox" name={{list.title}} value={{list.title}}><a href="{% url 'todo_board_detail' pk=list.no %}"> {{list.title}}</a></div>
+            {% endfor %}
+        </div>
+        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'todo_board:todo_board_insert' %} '">
+            글쓰기
+        </button>
     </div>
-</div>
-
-<div class="col-md-12">
-    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'todo_board:todo_board_insert' %}'">
-        일정추가
-    </button>
 </div>
 
 {% endblock main %}
