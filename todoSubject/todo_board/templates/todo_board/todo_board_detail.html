@@ -6,7 +6,8 @@
         {{ todo_list }}
         <h2>{{ todo_list.title }}</h2>
         <p> {{ todo_list.content | linebreaksbr}}</p><br>
-        <h2><a href="{% url 'todo_board:todo_board_update' pk=todo_list.pk %}"> 수정 </a></h2>
+        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'todo_board:todo_board_update' pk=todo_list.pk %}'">수정</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'todo_board:todo_board_delete' pk=todo_list.pk %}'">삭제</button>
     </div>
 </section>
 
